@@ -1,0 +1,1 @@
+# next-site-minimal-template
