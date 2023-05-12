@@ -1,12 +1,16 @@
 import Image from "next/image";
 import { dictionary } from '../../../dictionary'
 
-export const metadata = {
-  title: 'Site Template - About'
+export async function generateMetadata({ params: { lang } }) {
+  const t = dictionary(lang)
+
+  return {
+    title: t.aboutPage.metaTitle,
+  };
 }
 
-export default function AboutPage(params) {
-  const t = dictionary(params)
+export default function AboutPage({ params: { lang } }) {
+  const t = dictionary(lang)
 
   return (
     <div className="flex flex-col items-center">
@@ -27,7 +31,7 @@ export default function AboutPage(params) {
 
           <div className="hidden lg:flex w-full lg:w-1/2 justify-end">
             <div className="relative w-[32rem] h-[28rem] xl:w-[36rem] xl:h-[32rem]">
-              <Image src="/hero.jpeg" alt="Hero image" fill />
+              <Image src="/hero.jpg" alt="Hero image" fill priority={true}/>
             </div>
           </div>
         </div>

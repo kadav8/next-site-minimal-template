@@ -9,6 +9,7 @@ const hu = {
 		content1: "Ez egy template."
 	},
 	aboutPage: {
+		metaTitle: "Rólam",
 		title1: "Gyors oldalakat",
 		title2: " & appokat építünk.",
 		content1: "Maximalizálja üzleti potenciálját a legújabb, innovatív technológiákkal épített, hatékony weboldalakkal."
