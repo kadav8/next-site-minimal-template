@@ -1,6 +1,5 @@
 export const dynamicParams = false;
 export const dynamic = 'auto';
-export const revalidate = 6000;
 
 export async function generateStaticParams() {
   return [{ slug: 'cikk1' },{ slug: 'cikk2' }];
