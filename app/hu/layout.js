@@ -2,12 +2,6 @@ import '../../styles/globals.css'
 import Header from './header';
 import Footer from './footer';
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return [{ lang: 'hu' }, { lang: 'en' }];
-}
-
 export const metadata = {
   title: 'Site Template',
   description: 'Best site template ever',

@@ -5,6 +5,7 @@ export const config = { runtime: "edge", regions: ['fra1'] };
 export default async function ArticleFunction(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const id = searchParams.get('id')
+  console.log("API CALLED")
   if(request.method === "GET") return NextResponse.json('Ez egy cikk');
   return NextResponse.json('Method not allowed.');
 }
