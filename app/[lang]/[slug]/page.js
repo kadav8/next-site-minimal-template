@@ -1,5 +1,5 @@
 export const dynamicParams = false;
-export const dynamic = 'error';
+export const dynamic = 'auto';
 
 export async function generateStaticParams() {
   return [{ slug: 'cikk1' },{ slug: 'cikk2' }];
