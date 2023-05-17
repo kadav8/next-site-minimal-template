@@ -7,6 +7,12 @@ export const metadata = {
   description: 'Best site template ever',
 }
 
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  return [{ lang: 'hu' }, { lang: 'en' }];
+}
+
 export default function Root({ children, params }) {
   return (
     <html lang={params.lang}>
