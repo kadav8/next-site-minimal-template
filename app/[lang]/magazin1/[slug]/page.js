@@ -1,5 +1,7 @@
 export const revalidate = 1000;
 export const dynamicParams = true;
+export const runtime = 'edge';
+export const dynamic = 'error'
 
 export async function generateStaticParams() {
   return [{ slug: 'cikk1' },{ slug: 'cikk2' }];
