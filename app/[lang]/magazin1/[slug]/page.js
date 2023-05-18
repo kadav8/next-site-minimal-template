@@ -2,10 +2,6 @@ export const revalidate = 'force-cache';
 export const dynamic = 'force-static'
 export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  return [{ slug: 'cikk1' },{ slug: 'cikk2' }];
-}
-
 export default async function ArticlePage({ params }) {
   const res = await fetch('https://next-site-minimal-template.vercel.app/api/articles/10');
   const data = res.json();
