@@ -1,4 +1,4 @@
-export const revalidate = 'force-cache';
+export const revalidate = 1000;
 
 export async function generateStaticParams() {
   return [{ slug: 'cikk1' },{ slug: 'cikk2' }];
