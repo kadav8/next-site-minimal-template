@@ -1,4 +1,4 @@
-export const revalidate = 'force-cache';
+export const revalidate = 1000;
 export const dynamicParams = true;
 export const runtime = 'edge';
 export const dynamic = 'force-static'
