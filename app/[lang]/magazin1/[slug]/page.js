@@ -1,5 +1,5 @@
-export const revalidate = 'force-cache';
-export const dynamic = 'force-static'
+//export const revalidate = 'force-cache';
+//export const dynamic = 'force-static'
 export const dynamicParams = true;
 
 export default async function ArticlePage({ params }) {
