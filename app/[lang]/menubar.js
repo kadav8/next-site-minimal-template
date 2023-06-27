@@ -3,23 +3,19 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from 'react';
+import '../../styles/css/menubar-dropdown.css';
+import '../../styles/css/menubar.css';
 import LanguageSelector from "./language-selector";
 import MobileMenu from "./mobile-menu";
-import '../../styles/css/header.css';
 
 export default function Menubar(props) {
   const pathname = usePathname();
+
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   useEffect(() => {
     setShowMobileMenu(false);
   }, [pathname]);
-
-  useEffect(() => {
-    showMobileMenu
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'auto');
-  }, [showMobileMenu]);
 
   return (
     <>
@@ -33,7 +29,7 @@ export default function Menubar(props) {
 
         <div className="flex flex-row justify-end w-20 py-3">
           <span className="border border-white text-white rounded-lg py-1 px-3">
-            <LanguageSelector/>
+            <LanguageSelector />
           </span>
         </div>
 
@@ -44,30 +40,62 @@ export default function Menubar(props) {
           </div>
         </div>
       </div>
-
-      <MobileMenu bg="text-indigo-200 bg-indigo-600" show={showMobileMenu}>
-        <Navigation lang={props.lang} navigation={props.navigation} />
-      </MobileMenu>
+      <div className=' relative md:hidden'>
+        <MobileMenu show={showMobileMenu}>
+          <Navigation lang={props.lang} navigation={props.navigation} />
+        </MobileMenu>
+      </div>
     </>
 
   );
 }
 
-export function Navigation(props) {
+export function Navigation({ lang, navigation }) {
+  return (
+    <ul className="flex flex-col justify-center items-center gap-10 md:flex-row">
+      <NavigationItem href={`/${lang}`} name={navigation.home.title} />
+      <NavigationItem href={`/${lang}/${navigation.about.url}`} name={navigation.about.title} />
+      <NavigationItem lang={lang} items={navigation.services.dropdown} name={navigation.services.title} />
+      <NavigationItem lang={lang} items={navigation.other.dropdown} name={navigation.other.title} />
+      <NavigationItem lang={lang} items={navigation.other.dropdown} name={navigation.other.title} />
+      <NavigationItem lang={lang} items={navigation.other.dropdown} name={navigation.other.title} />
+    </ul>
+  );
+}
+
+export function NavigationItem({ href, name, items, lang }) {
   return (
     <>
-      <MenuLink href={`/${props.lang}`} name={props.navigation.homeTitle} />
-      <MenuLink href={`/${props.lang}/${props.navigation.aboutUrl}`} name={props.navigation.aboutTitle} />
+      {href ?
+        <MenuLink href={href} name={<span className="font-bold md:font-normal text-xl md:text-xs">{name}</span>} />
+        :
+        <Dropdown lang={lang} items={items} name={name} />}
     </>
   );
 }
 
-export function MenuLink(props) {
+function Dropdown({ name, items, lang }) {
+
   return (
-    <div className="py-3 px-5">
-      <Link href={props.href} className="hover:text-white hover:cursor-pointer">
-        {props.name}
-      </Link>
-    </div>
+    <li className="dropdown">
+      <span className="font-bold md:font-normal text-xl md:text-xs">{name}</span>
+      <div className="dropdown_menu_container p-2">
+        <ul className="dropdown_menu rounded-lg">
+          {items.map((item, i) =>
+            <MenuLink href={`/${lang}/${item.url}`} className="dropdown_item" name={item.title} key={i} />)}
+        </ul>
+      </div>
+    </li>
   );
 }
+
+export function MenuLink({ href, name, className }) {
+  return (
+    <li className={className}>
+      <Link href={href} className="md:hover:text-white hover:cursor-pointer">
+        {name}
+      </Link>
+    </li>
+  );
+}
+

@@ -1,8 +1,43 @@
 const en = {
 	navigation: {
-		homeTitle: "Home",
-		aboutTitle: "About",
-		aboutUrl: "about"
+		home: {
+			title: "Home",
+			url: "/"
+		},
+		about: {
+			title: "About",
+			url: "/about"
+		},
+		podcast: {
+			title: "Podcast",
+			url: "/podcast"
+		},
+		services: {
+			title: "Services",
+			dropdown: [
+				{
+					title: 'Individual session',
+					url: 'individual-session'
+				},
+				{
+					title: 'Online therapy',
+					url: 'online-therapy'
+				}
+			],
+		},
+		other: {
+			title: "Menu",
+			dropdown: [
+				{
+					title: 'Submenu 1',
+					url: 'menu/submenu1'
+				},
+				{
+					title: 'Submenu 2',
+					url: 'menu/submenu2'
+				}
+			],
+		}
 	},
 	mainPage: {
 		title: "Template",

@@ -1,8 +1,44 @@
 const hu = {
 	navigation: {
-		homeTitle: "Főoldal",
-		aboutTitle: "Rólunk",
-		aboutUrl: "rolam"
+		home: {
+			title: "Főoldal",
+			url: "/"
+		},
+		about: {
+			title: "Rólam",
+			url: "rolam"
+		},
+		podcast: {
+			title: "Podcast",
+			url: "podcast"
+		},
+		services: {
+			title: "Szolgáltatások",
+			dropdown: [
+				{
+					title: 'Egyéni folyamat',
+					url: 'szolgaltatasok/egyeni-folyamat'
+				},
+				{
+					title: 'Online tanácsadás',
+					url: 'szolgaltatasok/online-tanacsadas'
+				}
+			],
+		},
+		other: {
+			title: "Menüpont",
+			dropdown: [
+				{
+					title: 'Almenü1',
+					url: 'szolgaltatasok/egyeni-folyamat'
+				},
+				{
+					title: 'Almenü2',
+					url: 'szolgaltatasok/online-tanacsadas'
+				}
+			],
+		}
+
 	},
 	mainPage: {
 		title: "Template",
